@@ -108,18 +108,16 @@ public class PlaylistLinkedList {
        return true;
     }
 
-    public void getAllSongs() {
-        if(head == null) {
-            System.out.println("Playlist is empty");
-            return;
-        }
-        
-        SongNode temp = head;
+  public java.util.List<SongNode> getSongsAsList() {
+    java.util.List<SongNode> list = new java.util.ArrayList<>();
 
-        while(temp != null) {
-            System.out.println(temp.toString());
-            temp = temp.getNext();
-        }
+    SongNode temp = head;
+
+    while(temp != null) {
+        list.add(temp);
+        temp = temp.getNext();
     }
+    return list;
+}
 
 }
