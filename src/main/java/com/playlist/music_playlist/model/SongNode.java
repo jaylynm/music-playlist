@@ -1,5 +1,5 @@
 package com.playlist.music_playlist.model;
-public class SongNode {
+public class SongNode{
 
     private int id;
     private String artist;
@@ -7,6 +7,7 @@ public class SongNode {
     private double duration;
     private SongNode next;
     private SongNode previous;
+
 
     public SongNode() {
         this.id = 0;
@@ -74,7 +75,8 @@ public class SongNode {
         this.previous = null;
     }
 
-    // Song: 
+    // Song Hot and Talking- Say Now (3.11)
+    @Override 
     public String toString() {
         return "Song " + title + "- " + artist
                 + " (" + duration + "";
