@@ -55,7 +55,7 @@ public class SongNode{
         return duration;
     } 
 
-    public void serDuration(double duration) {
+    public void setDuration(double duration) {
         this.duration = duration;
     }
 
@@ -64,7 +64,7 @@ public class SongNode{
     }
 
     public void setNext(SongNode next) {
-        this.next = null;
+        this.next = next;
     }
 
     public SongNode getPrevious() {
@@ -72,7 +72,7 @@ public class SongNode{
     }
 
     public void setPrevious(SongNode previous) {
-        this.previous = null;
+        this.previous = previous;
     }
 
     // Song Hot and Talking- Say Now (3.11)

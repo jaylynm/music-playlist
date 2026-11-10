@@ -1,9 +1,9 @@
 package com.playlist.music_playlist.controller;
 
-import com.playlist.music_playlist.model.Songnode;
+import com.playlist.music_playlist.model.SongNode;
 import com.playlist.music_playlist.service.PlaylistService;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 

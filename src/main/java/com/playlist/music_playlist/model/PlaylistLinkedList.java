@@ -1,5 +1,8 @@
 package com.playlist.music_playlist.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PlaylistLinkedList {
 
     SongNode head;
@@ -65,51 +68,47 @@ public class PlaylistLinkedList {
         throw new IllegalArgumentException("Please enter a valid song");
        }  
        
-       
-       if(head.getId() == id) {
-        if(head == tail) {
-            head = null;
-            tail = null;
-        } else {
-            head = head.getNext();
-            head.setPrevious(null);
-              if(current == head.getPrevious()) {
-                current = head;
-              }
-        }
-        return true;
-       }
-
-       if(tail.getId() == id) {
-        tail = tail.getPrevious();
-        tail.setNext(null);
-          if(current == tail.getNext()) {
-            current = tail;
-          }
-          return true;
-       }
-
-
        SongNode temp = head;
-       while(temp != null && temp.getId() != id) {
+
+       while(temp != null && temp.getId() != id){
         temp = temp.getNext();
        }
 
-       if(temp == null) {
+       if(temp == null){
         return false;
        }
 
-       temp.getPrevious().setNext(temp.getNext());
-       temp.getNext().setPrevious(temp.getPrevious());
+       SongNode before = temp.getPrevious();
+       SongNode after = temp.getNext();
+
+       if(before == null){
+        head = after;
+       } else {
+        before.setNext(after);
+       }
+
+       if(after == null){
+        tail = before;
+       } else {
+        after.setPrevious(before);
+       }
 
        if(current == temp) {
-        current = temp.getNext();
+        current = after != null ? after : before;
        }
+
+       if(previous == temp){
+        previous = before;
+       }
+
+       temp.setNext(null);
+       temp.setPrevious(null);
+
        return true;
     }
 
-  public java.util.List<SongNode> getSongsAsList() {
-    java.util.List<SongNode> list = new java.util.ArrayList<>();
+  public List<SongNode> getSongsAsList() {
+    List<SongNode> list = new ArrayList<>();
 
     SongNode temp = head;
 
@@ -120,4 +119,24 @@ public class PlaylistLinkedList {
     return list;
 }
 
+public SongNode getCurrentSong() {
+    return current;
+    }
+
+public void printPlaylist() {
+    SongNode temp = head;
+
+    while(temp != null){
+        System.out.println(temp.getTitle());
+        temp = temp.getNext();
+    }
+}
+
+/*
+
+public SongNode getCurrentSong() {
+            return playlist.getCurrentSong();
+        }
+
+*/
 }
