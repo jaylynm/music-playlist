@@ -1,11 +1,17 @@
 package com.playlist.music_playlist.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 public class SongNode{
 
     private int id;
     private String artist;
     private String title;
     private double duration;
+
+    @JsonIgnore
     private SongNode next;
+
+    @JsonIgnore
     private SongNode previous;
 
 

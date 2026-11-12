@@ -6,6 +6,7 @@ import com.playlist.music_playlist.model.SongNode;
 public class PlayListDriver {
     public void main(String[] args) {
 
+
         SongNode song1 = new SongNode(1, "Ariana Grande", "we can't be friends", 3.5);
         SongNode song2 = new SongNode(2, "Adela", "Boys", 2.3);
         SongNode song3 = new SongNode(3, "Katseye", "Touch",3.2);
@@ -15,6 +16,7 @@ public class PlayListDriver {
 
         PlaylistLinkedList myplaylist = new PlaylistLinkedList();
 
+        System.out.println("----- 1.TESTING 'ADD-----" );
         myplaylist.addSong(song1);
         myplaylist.addSong(song2);
         myplaylist.addSong(song3);
@@ -22,7 +24,18 @@ public class PlayListDriver {
         myplaylist.addSong(song5);
         myplaylist.addSong(song6);
     
+        System.out.println(myplaylist.getSongsAsList());
 
-        System.out.print(myplaylist);
+
+
+        //TEST PLAY NEXT
+        myplaylist.playNext();
+        System.out.println("Current should be Boys by Adela" + myplaylist.getCurrentSong());
+
+        myplaylist.removeSong(4);
+
+        System.out.println("TESTING removeSong()." + myplaylist.getSongsAsList());
+
+
     }
 }
